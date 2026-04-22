@@ -230,10 +230,30 @@ setInterval(()=>{
       <img src="img6.jpg">
     </div>
 
-    <button onclick="next('message')">𝙉𝙚𝙭𝙩</button>
+    <button onclick="next('sharari')">𝙉𝙚𝙭𝙩</button>
   </div>
 </div>
 
+  <!-- SHAYARI -->
+<div id="shayari" class="screen">
+  <div class="card">
+
+    <h1>For You ❤️</h1>
+
+    <p id="shayariText"></p>
+
+    <!-- 🎧 Voice -->
+    <audio id="shayariAudio">
+      <source src="shayari.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="shayariNext" style="display:none;" onclick="next('message')">
+      Next 💖
+    </button>
+
+  </div>
+</div>
+  
 <!-- message -->
 <div id="message" class="screen">
   <div class="card">
@@ -318,6 +338,10 @@ function next(id){
   if(id==="message"){
     startTyping();
   }
+
+  if(id==="shayari"){
+    startTyping();
+  }
 }
 
 // moving button
@@ -356,6 +380,42 @@ function startTyping(){
       setTimeout(type,40);
     }else{
       btn.style.display="inline-block";
+    }
+  }
+  type();
+}
+  const shayari = `Kaise dekhun kisi aur ko...
+ki meri aankhon mein sirf tum ho...
+
+Nazrein lakh haseen sahi,
+magar meri nazar mein khubsurat sirf tum ho...
+
+Chaand, taare, phool, khushboo, shayari — yeh sab bhi achha hai...
+magar main kya karun in sab ka...
+
+ki mere liye kaafi sirf tum ho... ❤️`;
+
+function startShayari(){
+  let box = document.getElementById("shayariText");
+  let btn = document.getElementById("shayariNext");
+  let audio = document.getElementById("shayariAudio");
+
+  box.innerHTML = "";
+  btn.style.display = "none";
+
+  let i = 0;
+
+  // 🎧 voice start
+  audio.currentTime = 0;
+  audio.play().catch(()=>{});
+
+  function type(){
+    if(i < shayari.length){
+      box.innerHTML += shayari.charAt(i);
+      i++;
+      setTimeout(type,50);
+    }else{
+      btn.style.display = "inline-block";
     }
   }
   type();
