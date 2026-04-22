@@ -354,7 +354,7 @@ function moveBtn(btn){
 // secret code
 function check(){
   let val=document.getElementById("secret").value;
-  if(val=="1234"){
+  if(val=="993"){
     next('story');
   }else{
     alert("ohh nooo ");
@@ -385,12 +385,15 @@ function startTyping(){
   type();
 }
   const shayari = `Kaise dekhun kisi aur ko...
+  
 ki meri aankhon mein sirf tum ho...
 
 Nazrein lakh haseen sahi,
+
 magar meri nazar mein khubsurat sirf tum ho...
 
 Chaand, taare, phool, khushboo, shayari — yeh sab bhi achha hai...
+
 magar main kya karun in sab ka...
 
 ki mere liye kaafi sirf tum ho... ❤️`;
@@ -413,7 +416,7 @@ function startShayari(){
     if(i < shayari.length){
       box.innerHTML += shayari.charAt(i);
       i++;
-      setTimeout(type,50);
+      setTimeout(type,80);
     }else{
       btn.style.display = "inline-block";
     }
